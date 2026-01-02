@@ -1,6 +1,7 @@
 import yentlPhoto from "@/assets/yentl-photo.jpeg";
 import oliveBranch from "@/assets/olive-branch-hero.png";
 import oliveDecoration from "@/assets/olive-decoration.png";
+import brandLogo from "@/assets/brand-logo.jpeg";
 import { Button } from "@/components/ui/button";
 import { Instagram, MessageCircle, Heart, Users, Sparkles, Leaf } from "lucide-react";
 
@@ -71,13 +72,25 @@ const Index = () => {
 
             {/* Content */}
             <div className="flex-1 text-center lg:text-left max-w-2xl">
+              {/* Brand Logo behind "Volver a Ti" */}
+              <div className="relative inline-block mb-6 animate-scale-in" style={{ animationDelay: "0.1s" }}>
+                <img
+                  src={brandLogo}
+                  alt="Volver a Ti - Logo"
+                  className="w-40 md:w-52 lg:w-60 mx-auto lg:mx-0 opacity-90"
+                />
+                <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-semibold text-olive absolute bottom-2 left-1/2 lg:left-0 transform -translate-x-1/2 lg:translate-x-0 whitespace-nowrap">
+                  Volver a Ti
+                </h2>
+              </div>
+
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-4 animate-slide-up">
                 Yentl Pérez Berros
               </h1>
-              <p className="text-lg md:text-xl text-olive font-medium mb-2 animate-slide-up" style={{ animationDelay: "0.1s" }}>
+              <p className="text-lg md:text-xl text-olive font-medium mb-2 animate-slide-up" style={{ animationDelay: "0.15s" }}>
                 Especialista en inteligencia emocional
               </p>
-              <p className="text-muted-foreground text-lg mb-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+              <p className="text-muted-foreground text-lg mb-8 animate-slide-up" style={{ animationDelay: "0.25s" }}>
                 Más de 4 años acompañando a padres y madres a soltar, respirar y reconectar consigo mismos
               </p>
 
