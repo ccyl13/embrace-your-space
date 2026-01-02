@@ -149,19 +149,16 @@ const Index = () => {
               <SessionStep
                 number="1"
                 title="Llegada"
-                duration="5 min"
                 description="¿Cómo estás hoy? Nos conectamos y creamos un espacio seguro"
               />
               <SessionStep
                 number="2"
                 title="Espacio de palabra"
-                duration="40 min"
                 description="Espacio libre para hablar, con preguntas suaves que ayudan a profundizar"
               />
               <SessionStep
                 number="3"
                 title="Cierre e integración"
-                duration="5 min"
                 description="Integramos lo compartido y te llevas una pequeña reflexión"
               />
             </div>
@@ -287,20 +284,16 @@ const ServiceCard = ({ icon, title, description }: ServiceCardProps) => (
 interface SessionStepProps {
   number: string;
   title: string;
-  duration: string;
   description: string;
 }
 
-const SessionStep = ({ number, title, duration, description }: SessionStepProps) => (
+const SessionStep = ({ number, title, description }: SessionStepProps) => (
   <div className="flex items-start gap-4 bg-cream-dark/50 rounded-xl p-6 shadow-soft">
     <div className="w-12 h-12 rounded-full bg-olive flex items-center justify-center text-primary-foreground font-serif text-xl font-semibold flex-shrink-0">
       {number}
     </div>
     <div className="flex-1">
-      <div className="flex items-center gap-2 mb-1">
-        <h3 className="font-serif text-xl font-semibold text-foreground">{title}</h3>
-        <span className="text-sm text-olive bg-olive/10 px-2 py-0.5 rounded-full">{duration}</span>
-      </div>
+      <h3 className="font-serif text-xl font-semibold text-foreground mb-1">{title}</h3>
       <p className="text-muted-foreground">{description}</p>
     </div>
   </div>
