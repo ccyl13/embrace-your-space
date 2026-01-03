@@ -48,13 +48,13 @@ const Index = () => {
         <img
           src={oliveBranch}
           alt=""
-          className="absolute top-20 right-0 w-64 md:w-96 opacity-30 transform translate-x-1/4 animate-float pointer-events-none"
+          className="absolute top-20 right-0 w-48 md:w-96 opacity-20 md:opacity-30 transform translate-x-1/3 md:translate-x-1/4 animate-float pointer-events-none"
           aria-hidden="true"
         />
         <img
           src={oliveDecoration}
           alt=""
-          className="absolute bottom-10 left-0 w-32 md:w-48 opacity-20 transform -translate-x-1/4 rotate-45 pointer-events-none"
+          className="absolute bottom-10 left-0 w-24 md:w-48 opacity-15 md:opacity-20 transform -translate-x-1/3 md:-translate-x-1/4 rotate-45 pointer-events-none"
           aria-hidden="true"
         />
 
@@ -332,12 +332,12 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 bg-background border-t border-border">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
               <span className="font-serif text-lg font-semibold text-foreground">Volver a Ti</span>
               <p className="text-sm text-muted-foreground">Acompañamiento emocional para madres y padres</p>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
               <a
                 href={INSTAGRAM_URL}
                 target="_blank"
@@ -410,7 +410,7 @@ interface PricingCardProps {
 }
 
 const PricingCard = ({ title, price, duration, features, featured = false }: PricingCardProps) => (
-  <div className={`rounded-2xl p-8 ${featured ? 'bg-olive text-primary-foreground shadow-glow scale-105' : 'bg-background shadow-medium'} transition-smooth hover:scale-[1.02]`}>
+  <div className={`rounded-2xl p-6 md:p-8 ${featured ? 'bg-olive text-primary-foreground shadow-glow md:scale-105' : 'bg-background shadow-medium'} transition-smooth hover:scale-[1.02]`}>
     {featured && (
       <span className="inline-block text-xs font-semibold bg-primary-foreground/20 px-3 py-1 rounded-full mb-4">
         Más popular
