@@ -3,7 +3,8 @@ import oliveBranch from "@/assets/olive-branch-hero.png";
 import oliveDecoration from "@/assets/olive-decoration.png";
 import brandLogo from "@/assets/brand-logo.jpeg";
 import { Button } from "@/components/ui/button";
-import { Instagram, MessageCircle, Heart, Users, Sparkles, Leaf } from "lucide-react";
+import { Instagram, MessageCircle, Heart, Users, Sparkles, Leaf, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 const WHATSAPP_NUMBER = "34666314321";
 const WHATSAPP_MESSAGE = encodeURIComponent("Hola!, quería agendar mi consulta gratuita.");
@@ -16,8 +17,11 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <span className="font-serif text-xl font-semibold text-foreground">Volver a Ti</span>
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src={brandLogo} alt="Volver a Ti" className="w-10 h-10 rounded-full object-cover" />
+            <span className="font-serif text-xl font-semibold text-foreground">Volver a Ti</span>
+          </div>
           <div className="flex items-center gap-4">
             <a
               href={INSTAGRAM_URL}
@@ -101,6 +105,37 @@ const Index = () => {
         </div>
       </section>
 
+      {/* About Me Section */}
+      <section className="py-16 md:py-24 bg-cream-dark/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-10">
+              <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-medium border-4 border-olive/20 flex-shrink-0">
+                <img
+                  src={yentlPhoto}
+                  alt="Yentl Pérez Berros"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
+                  Sobre mí
+                </h2>
+                <p className="text-muted-foreground text-lg mb-4">
+                  Soy Yentl, mamá y especialista en inteligencia emocional. Después de experimentar en primera persona los retos de la maternidad, decidí formarme para acompañar a otras familias en este camino.
+                </p>
+                <p className="text-muted-foreground text-lg mb-4">
+                  Llevo más de 4 años creando espacios de escucha consciente donde madres y padres pueden soltar el peso, expresarse sin juicio y reconectar con su esencia.
+                </p>
+                <p className="text-olive font-medium">
+                  Mi misión es recordarte que no estás sola/o y que cuidarte también es cuidar a los tuyos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* What I Offer Section */}
       <section className="py-16 md:py-24 bg-cream-dark/50">
         <div className="container mx-auto px-4">
@@ -167,6 +202,35 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
+              Lo que dicen quienes han pasado por aquí
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <TestimonialCard
+              quote="Por fin encontré un espacio donde no me siento juzgada. Yentl me ayudó a entender que cuidarme no es egoísmo."
+              author="María L."
+              role="Mamá de 2"
+            />
+            <TestimonialCard
+              quote="Después de cada sesión siento que respiro más hondo. Me ha cambiado la forma de relacionarme con mis hijos."
+              author="Ana G."
+              role="Mamá primeriza"
+            />
+            <TestimonialCard
+              quote="Nunca pensé que hablar con alguien pudiera ayudarme tanto. Yentl tiene un don para escuchar."
+              author="Carlos R."
+              role="Papá de 1"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className="py-16 md:py-24 bg-cream-dark/30">
         <div className="container mx-auto px-4">
@@ -198,6 +262,42 @@ const Index = () => {
                 "Ahorro de 15€"
               ]}
             />
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
+                Preguntas frecuentes
+              </h2>
+            </div>
+
+            <div className="space-y-4">
+              <FAQItem
+                question="¿Las sesiones son online o presenciales?"
+                answer="Las sesiones son 100% online a través de videollamada. Así puedes conectar desde la comodidad de tu casa, sin tener que desplazarte."
+              />
+              <FAQItem
+                question="¿Necesito prepararme antes de una sesión?"
+                answer="No hace falta preparar nada. Solo ven como estés en ese momento. Este espacio es para ti, sin expectativas ni presiones."
+              />
+              <FAQItem
+                question="¿Qué pasa si tengo que cancelar una sesión?"
+                answer="Entiendo que la vida con peques es impredecible. Puedes cancelar o reprogramar con al menos 24 horas de antelación sin ningún problema."
+              />
+              <FAQItem
+                question="¿Esto es terapia psicológica?"
+                answer="No, esto es acompañamiento emocional basado en inteligencia emocional. No sustituye a la terapia psicológica, pero puede ser un complemento valioso o un primer paso para quien busca un espacio de escucha."
+              />
+              <FAQItem
+                question="¿Cuántas sesiones necesito?"
+                answer="Depende de cada persona. Algunas personas encuentran lo que necesitan en una sesión, otras prefieren un proceso más continuado. Tú decides el ritmo."
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -329,5 +429,52 @@ const PricingCard = ({ title, price, duration, features, featured = false }: Pri
     </ul>
   </div>
 );
+
+// Testimonial Card Component
+interface TestimonialCardProps {
+  quote: string;
+  author: string;
+  role: string;
+}
+
+const TestimonialCard = ({ quote, author, role }: TestimonialCardProps) => (
+  <div className="bg-cream-dark/50 rounded-xl p-6 shadow-soft hover:shadow-medium transition-smooth">
+    <div className="mb-4">
+      <svg className="w-8 h-8 text-olive/40" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+      </svg>
+    </div>
+    <p className="text-foreground mb-4 italic">{quote}</p>
+    <div>
+      <p className="font-semibold text-foreground">{author}</p>
+      <p className="text-sm text-muted-foreground">{role}</p>
+    </div>
+  </div>
+);
+
+// FAQ Item Component
+interface FAQItemProps {
+  question: string;
+  answer: string;
+}
+
+const FAQItem = ({ question, answer }: FAQItemProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div className="bg-cream-dark/50 rounded-xl overflow-hidden shadow-soft">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between p-6 text-left hover:bg-cream-dark/70 transition-smooth"
+      >
+        <span className="font-serif text-lg font-medium text-foreground">{question}</span>
+        <ChevronDown className={`w-5 h-5 text-olive transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
+        <p className="px-6 pb-6 text-muted-foreground">{answer}</p>
+      </div>
+    </div>
+  );
+};
 
 export default Index;
